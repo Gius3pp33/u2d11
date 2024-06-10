@@ -13,9 +13,9 @@ class User {
     compareAge(userToCompare){
 
       if (this.age > userToCompare.age) { 
-        return console.log(this.firstName + " " + this.lastName + " " + "è più grande di" + " " + userToCompare.firstName + " " + userToCompare.lastName)
+        return this.firstName + " " + this.lastName + " " + "è più grande di" + " " + userToCompare.firstName + " " + userToCompare.lastName
       } else if (this.age < userToCompare.age) {
-        return console.log(this.firstName + " " + this.lastName + " " + "è più piccolo di" + " " + userToCompare.firstName + " " + userToCompare.lastName)
+        return this.firstName + " " + this.lastName + " " + "è più piccolo di" + " " + userToCompare.firstName + " " + userToCompare.lastName
       }
     }
 }
