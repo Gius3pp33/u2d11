@@ -65,7 +65,8 @@ form.onsubmit = function (e) {
 
     console.log("Inviato")
     updatePetList();
-    checkSameOwner();
+    const sameOwnerExists = checkSameOwner(newPet);
+    console.log("They have the same Owner : " + sameOwnerExists);
     form.reset() // eventualmente alla fine possiamo resettare i campi
 }
 
@@ -88,17 +89,13 @@ pets.forEach(pet => {
 }
 
 
-// Esercizio extra,non richiesto
-function checkSameOwner() {
-    if (pets.length > 1) {
-        // se nell'array c'è almeno un animale vado avanti 
-        const lastPet = pets[pets.length - 1];
-        const previousPet = pets[pets.length - 2];
-        //ottengo gli ultimi due animali,l'ultimo e il penultimo
-        if (lastPet.sameOwner(previousPet)) {
-            console.log(`Gli animali ${lastPet.petName} e ${previousPet.petName} hanno lo stesso proprietario.`);
-        } else {
-            console.log(`Gli animali ${lastPet.petName} e ${previousPet.petName} hanno proprietari diversi.`);
+function checkSameOwner(newPet) {
+    for (const pet of pets) {
+        if (pet !== newPet && pet.sameOwner(newPet)) {
+            console.log(`Gli animali ${newPet.petName} e ${pet.petName} hanno lo stesso proprietario.`);
+            return true;
         }
     }
+    console.log(`Nessun animale con lo stesso proprietario di ${newPet.petName}.`);
+    return false;
 }
