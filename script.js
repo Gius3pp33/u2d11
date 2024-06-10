@@ -90,12 +90,16 @@ pets.forEach(pet => {
 
 
 function checkSameOwner(newPet) {
+    //itero nell'array pets 
     for (const pet of pets) {
+        //confronto ogni animale con il nuovo animale (newPet) come argomento
         if (pet !== newPet && pet.sameOwner(newPet)) {
             console.log(`Gli animali ${newPet.petName} e ${pet.petName} hanno lo stesso proprietario.`);
             return true;
+            //restituisce true se trova almeno un animale con lo stesso proprietario
         }
     }
+    //se non lo trova manderà questo messaggio
     console.log(`Nessun animale con lo stesso proprietario di ${newPet.petName}.`);
     return false;
 }
